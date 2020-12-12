@@ -5,7 +5,7 @@
 function calculateZ(str) {
     let left = 0;
     let right = 0;
-    let Z = [];
+    let Z = [0];
     for (let i = 1; i < str.length; i++) {
         if(i > right){
             left = i;
