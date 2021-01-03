@@ -67,11 +67,11 @@ function setFailTransitions() {
     // let child = 0
     for(let node of adjList[0]["nextStates"]){
         q.push(node)
-        adjList[node]["failStates"] = 0
+        adjList[node]["failState"] = 0
     }
 
     while (q.length>0) {
-        let r = q.splice(0,1)
+        let r = q.shift()
         for(let child of adjList[r]["nextStates"]){
             q.push(child)
             let state = adjList[r]["failState"]
