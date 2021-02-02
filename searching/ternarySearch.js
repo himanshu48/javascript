@@ -1,19 +1,17 @@
 "use strict"
 
-function ternary_search(l, r, x){
+function ternarySearch(arr, s, l=0, r=arr.length){
     if(r>=l){
         let mid1 = l + Math.floor((r-l)/3);
         let mid2 = r - Math.floor((r-l)/3);
-        if(ar[mid1] == x) return mid1;
-        if(ar[mid2] == x) return mid2;
-        if(x<ar[mid1]) return ternary_search(l,mid1-1,x);
-        else if(x>ar[mid2]) return ternary_search(mid2+1,r,x);
-        else return ternary_search(mid1+1,mid2-1,x);
+        if(arr[mid1] == s) return mid1;
+        if(arr[mid2] == s) return mid2;
+        if(s<arr[mid1]) return ternarySearch(arr, s, l, mid1-1);
+        else if(s>arr[mid2]) return ternarySearch(arr, s, mid2+1, r);
+        else return ternarySearch(arr, s, mid1+1, mid2-1);
     }
     return -1;
 }
 
 const ar = [1,3,4,6,7,8,9,18,24,29,34,38]
-let li = Math.floor(ar.length/3)
-let ri = ar.length - li
-console.log(ternary_search(li,ri,8));
+console.log(ternarySearch(ar, 8));
